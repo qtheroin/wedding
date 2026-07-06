@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Leonora & Vinko</title>
+<link rel="stylesheet" href="css/main.css">
+
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+emailjs.init("m4nCsvImpj6I6X6tp");
+</script>
+</head>
+
+<body>
+
+ <div class="pozadina">
+<!-- 🌸 SNOWFLAKES (TVOJ ORIGINAL OSTAO) -->
+<div class="snowflakes">
+  <div class="snowflake"><img src="https://i.postimg.cc/jCVLg47g/petal.gif"></div>
+  <div class="snowflake"><img src="https://i.postimg.cc/YS2fztk4/petal2.gif"></div>
+</div>
+<img class="vrpca" src="slike/vrpac2.png" alt="">
+<!-- 🌺 TVOJE SLIKE -->
+<!-- <img class="cvjece" src="slike/cvjece.png" alt="">
+<img class="cvjece" src="slike/cvjece2.png" alt="">
+ -->
+<!-- 🎥 HEADER VIDEO OSTAO -->
+
+
+    <!-- <video autoplay muted loop class="video">
+        <source src="video/videjo.mp4" type="video/mp4">
+    </video> -->
+    
+     <img class="konjic" src="slike/slikicaaa2.png" alt="">
+    <div class="naslov">
+        <h1>Leonora</h1>
+    <h1>&</h1>
+    <h1>Vinko</h1>
+    </div>
+    <!-- <img class="prsten" src="slike/prsten.png" alt=""> -->
+    <img class="prsten2" src="slike/prsten3.png" alt="">
+
+
+<main>
+    <div class="lokacija">
+        <h1></h1>
+    </div>  
+<!-- <img class="kalendar" src="slike/kalendar.png" alt=""> -->
+<!-- ⏳ COUNTDOWN OSTAO -->
+  <!-- <h2>Kaštel Sućurac</h2> -->
+<div class="container">
+    <p class="subtitle">17. listopada 2026.</p>
+
+    <div class="countdown">
+        <div class="box"><div id="days">0</div><div>Dana</div></div>
+        <div class="box"><div id="hours">0</div><div>Sati</div></div>
+        <div class="box"><div id="minutes">0</div><div>Minuta</div></div>
+        <div class="box"><div id="seconds">0</div><div>Sekundi</div></div>
+    </div>
+</div>
+
+<!-- 💍 RSVP (FIXANO) -->
+<div class="form-container">
+    <h1>Potvrdi dolazak</h1>
+
+    <form onsubmit="submitForm(event)">
+
+        <label>Ime obitelji / glavne osobe</label>
+        <input type="text" required>
+
+        <label>Email</label>
+        <input type="email" required>
+
+        <label>Dolaziš li?</label>
+        <select id="attendance" required>
+            <option value="">Odaberi</option>
+            <option value="Da">Da 🎉</option>
+            <option value="Ne">Ne 😢</option>
+        </select>
+
+        <div id="peopleContainer">
+            <label>Osobe koje dolaze</label>
+            <input type="text" name="person[]" placeholder="Ime osobe 1" required>
+        </div>
+
+        <button type="button" onclick="addPerson()">+ Dodaj osobu</button>
+
+        <label>Poruka</label>
+        <textarea rows="3"></textarea>
+
+        <button type="submit">Pošalji</button>
+
+        <div class="note">Hvala ❤️ Vidimo se 17.10.2026</div>
+    </form>
+</div>
+
+</main>
+</div>
+<script>
+
+// ⏳ COUNTDOWN
+const weddingDate = new Date("October 17, 2026 00:00:00").getTime();
+
+function updateCountdown(){
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    document.getElementById("days").innerText =
+        Math.floor(distance / (1000*60*60*24));
+
+    document.getElementById("hours").innerText =
+        Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+
+    document.getElementById("minutes").innerText =
+        Math.floor((distance % (1000*60*60)) / (1000*60));
+
+    document.getElementById("seconds").innerText =
+        Math.floor((distance % (1000*60)) / 1000);
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+
+// ➕ ADD PERSON
+function addPerson(){
+    const container = document.getElementById("peopleContainer");
+
+    const count = container.querySelectorAll("input").length + 1;
+
+    const input = document.createElement("input");
+    input.type = "text";
+    input.name = "person[]";
+    input.placeholder = "Ime osobe " + count;
+    input.required = true;
+
+    container.appendChild(input);
+}
+
+
+// 📩 EMAILJS
+function submitForm(event){
+    event.preventDefault();
+
+    const form = event.target;
+
+    const persons = [...document.querySelectorAll('input[name="person[]"]')]
+        .map(i => i.value)
+        .join(", ");
+
+    emailjs.send(
+        "service_0el4kwb",
+        "template_zhavlcg",
+        {
+            main_name: form.querySelector("input[type='text']").value,
+            email: form.querySelector("input[type='email']").value,
+            attendance: document.getElementById("attendance").value,
+            persons: persons,
+            message: form.querySelector("textarea")?.value || ""
+        }
+    )
+    .then(() => {
+        alert("💍 Poslano!");
+        form.reset();
+    })
+    .catch((err) => {
+        console.log(err);
+        alert("Greška pri slanju");
+    });
+}
+
+</script>
+
+</body>
+</html>
