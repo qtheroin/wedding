@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leonora & Vinko</title>
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <header>
+
+        <h1>S ljubavlju</h1>
+        <h1>vas</h1>
+        <h1>pozivamo</h1>
+
+        <img src="slike/oni.png" alt="Prsten">
+<div class="text">
+     <h2>Leonora & Vinko</h2>
+
+        <h3>17. listopada 2026.</h3>
+
+        <p>
+            Nema veće radosti od one koju dijelimo s ljudima koje volimo.
+            S velikom radošću pozivamo vas da budete dio našeg najljepšeg dana.
+        </p>
+
+        <button>Potvrdi dolazak</button>
+</div>
+       
+
+    </header>
+
+    <main>
+
+        <!-- <img class="oni" src="slike/1.png" alt=""> -->
+        <img class="datum" src="slike/spremi datum.png" alt="">
+
+       
+
+        <div class="countdown">
+
+            <div class="time-box">
+                <span id="days">0</span>
+                <p>Dana</p>
+            </div>
+
+            <div class="time-box">
+                <span id="hours">0</span>
+                <p>Sati</p>
+            </div>
+
+            <div class="time-box">
+                <span id="minutes">0</span>
+                <p>Minuta</p>
+            </div>
+
+            <div class="time-box">
+                <span id="seconds">0</span>
+                <p>Sekundi</p>
+            </div>
+
+        </div>
+ <img class="prsten" src="slike/preen.png" alt="">
+ 
+    </main>
+
+    <script>
+
+        const weddingDate = new Date("2026-10-17T00:00:00").getTime();
+
+        function countdown() {
+
+            const now = new Date().getTime();
+
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours.toString().padStart(2, "0");
+            document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, "0");
+            document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, "0");
+
+        }
+
+        countdown();
+
+        setInterval(countdown, 1000);
+
+    </script>
+
+</body>
+
+</html>
