@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Leonora & Vinko</title>
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- EMAILJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script>
+        emailjs.init("m4nCsvImpj6I6X6tp");
+    </script>
+</head>
+
+<body>
+
+    <!-- LATICE KOJE STALNO PADAJU -->
+    <div class="snowflakes" aria-hidden="true">
+
+        <div class="snowflake">
+            <img src="https://i.postimg.cc/jCVLg47g/petal.gif" alt="">
+        </div>
+
+        <div class="snowflake">
+            <img src="https://i.postimg.cc/YS2fztk4/petal2.gif" alt="">
+        </div>
+
+        <div class="snowflake">
+            <img src="https://i.postimg.cc/jCVLg47g/petal.gif" alt="">
+        </div>
+
+        <div class="snowflake">
+            <img src="https://i.postimg.cc/YS2fztk4/petal2.gif" alt="">
+        </div>
+
+        <div class="snowflake">
+            <img src="https://i.postimg.cc/jCVLg47g/petal.gif" alt="">
+        </div>
+
+        <div class="snowflake">
+            <img src="https://i.postimg.cc/YS2fztk4/petal2.gif" alt="">
+        </div>
+
+        <div class="snowflake">
+            <img src="https://i.postimg.cc/jCVLg47g/petal.gif" alt="">
+        </div>
+
+        <div class="snowflake">
+            <img src="https://i.postimg.cc/YS2fztk4/petal2.gif" alt="">
+        </div>
+
+    </div>
+
+
+    <!-- HEADER -->
+    <header class="page-fade-in">
+
+        <h1>S ljubavlju</h1>
+        <h1>vas</h1>
+        <h1>pozivamo</h1>
+
+        <img
+            src="slike/1.png"
+            alt="Ilustracija mladenaca"
+        >
+
+        <div class="text">
+
+            <h2>Leonora & Vinko</h2>
+
+            <h3>17. listopada 2026.</h3>
+
+            <p>
+                Nema veće radosti od one koju dijelimo s ljudima koje volimo.
+                S velikom radošću pozivamo vas da budete dio našeg
+                najljepšeg dana.
+            </p>
+
+            <button
+                type="button"
+                onclick="document.getElementById('dolazak').scrollIntoView({
+                    behavior: 'smooth'
+                })"
+            >
+                Potvrdi dolazak
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- DATUM -->
+        <img
+            class="datum scroll-fade"
+            src="slike/spremi datum.png"
+            alt="Spremi datum"
+        >
+
+
+        <!-- ODBROJAVANJE -->
+        <div class="countdown scroll-fade">
+
+            <div class="time-box">
+                <span id="days">000</span>
+                <p>Dana</p>
+            </div>
+
+            <div class="time-box">
+                <span id="hours">00</span>
+                <p>Sati</p>
+            </div>
+
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <p>Minuta</p>
+            </div>
+
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <p>Sekundi</p>
+            </div>
+
+        </div>
+
+
+        <!-- RASPORED -->
+        <div class="raspored">
+
+            <div class="okupljanje scroll-fade">
+
+                <h3>OKUPLJANJE</h3>
+
+                <p>15:30h</p>
+
+                <p>Restoran NAUTILUS</p>
+
+                <p>
+                    Obala kralja Tomislava 31,
+                    Kaštel Sućurac
+                </p>
+
+            </div>
+
+
+            <img
+                class="prsten scroll-fade"
+                src="slike/preen.png"
+                alt="Ilustracija prstena"
+            >
+
+
+            <div class="crkva scroll-fade">
+
+                <h3>CRKVA</h3>
+
+                <p>18:00h</p>
+
+                <p>
+                    Crkva sv. Jurja Mučenika,
+                    Kaštel Sućurac
+                </p>
+
+            </div>
+
+
+            <img
+                class="prsten scroll-fade"
+                src="slike/preen.png"
+                alt="Ilustracija prstena"
+            >
+
+
+            <div class="vecera scroll-fade">
+
+                <h3>SVEČANA VEČERA</h3>
+
+                <p>20:00h</p>
+
+                <p>Sala SEVEN weddings &amp; events</p>
+
+                <p>
+                    Putaljski put 58,
+                    Kaštel Sućurac
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ILUSTRACIJA PARA -->
+        <img
+            class="oni scroll-fade"
+            src="slike/srceko.png"
+            alt="Ilustracija para sa srcem"
+        >
+
+
+        <!-- POTVRDA DOLASKA -->
+        <div
+            class="form-container scroll-fade"
+            id="dolazak"
+        >
+
+            <h1>Potvrdi dolazak</h1>
+
+            <p>
+                Molimo vas potvrditi dolazak do 17.09.2026.
+            </p>
+
+            <form onsubmit="submitForm(event)">
+
+                <label for="mainName">
+                    Ime obitelji / glavne osobe
+                </label>
+
+                <input
+                    type="text"
+                    id="mainName"
+                    required
+                >
+
+
+                <label for="attendance">
+                    Dolaziš li?
+                </label>
+
+                <select
+                    id="attendance"
+                    required
+                    onchange="togglePeopleFields()"
+                >
+                    <option value="">Odaberi</option>
+                    <option value="Da">Da 🎉</option>
+                    <option value="Ne">Ne 😢</option>
+                </select>
+
+
+                <div id="peopleSection">
+
+                    <div id="peopleContainer">
+
+                        <label>
+                            Osobe koje dolaze
+                        </label>
+
+                        <input
+                            type="text"
+                            name="person[]"
+                            placeholder="Ime osobe 1"
+                            required
+                        >
+
+                    </div>
+
+                    <button
+                        type="button"
+                        onclick="addPerson()"
+                    >
+                        + Dodaj osobu
+                    </button>
+
+                </div>
+
+
+                <label for="message">
+                    Poruka
+                </label>
+
+                <textarea
+                    id="message"
+                    rows="3"
+                ></textarea>
+
+
+                <button type="submit">
+                    Pošalji
+                </button>
+
+
+                <div class="note">
+                    Hvala ❤️ Vidimo se 17.10.2026.
+                </div>
+
+            </form>
+
+        </div>
+
+
+        <!-- KONTAKTI -->
+        <div class="brojevi scroll-fade">
+
+            <h2>Leonora & Vinko</h2>
+
+            <div class="mladenka">
+
+                <p>Broj mladenke:</p>
+
+                <a href="tel:+385915868188">
+                    +385 91 586 8188
+                </a>
+
+            </div>
+
+            <div class="mladozenja">
+
+                <p>Broj mladoženje:</p>
+
+                <a href="tel:+385998288609">
+                    +385 99 828 8609
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script>
+        /*
+        ODBROJAVANJE
+        Datum: 17. listopada 2026. u 15:30
+        */
+
+        const weddingDate =
+            new Date("2026-10-17T15:30:00+02:00").getTime();
+
+        const daysElement =
+            document.getElementById("days");
+
+        const hoursElement =
+            document.getElementById("hours");
+
+        const minutesElement =
+            document.getElementById("minutes");
+
+        const secondsElement =
+            document.getElementById("seconds");
+
+
+        function countdown() {
+
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance <= 0) {
+
+                daysElement.textContent = "000";
+                hoursElement.textContent = "00";
+                minutesElement.textContent = "00";
+                secondsElement.textContent = "00";
+
+                return;
+            }
+
+            const days = Math.floor(
+                distance / (1000 * 60 * 60 * 24)
+            );
+
+            const hours = Math.floor(
+                (distance % (1000 * 60 * 60 * 24)) /
+                (1000 * 60 * 60)
+            );
+
+            const minutes = Math.floor(
+                (distance % (1000 * 60 * 60)) /
+                (1000 * 60)
+            );
+
+            const seconds = Math.floor(
+                (distance % (1000 * 60)) / 1000
+            );
+
+            daysElement.textContent =
+                days.toString().padStart(3, "0");
+
+            hoursElement.textContent =
+                hours.toString().padStart(2, "0");
+
+            minutesElement.textContent =
+                minutes.toString().padStart(2, "0");
+
+            secondsElement.textContent =
+                seconds.toString().padStart(2, "0");
+        }
+
+        countdown();
+
+        setInterval(countdown, 1000);
+
+
+        /*
+        DODAVANJE OSOBE
+        */
+
+        function addPerson() {
+
+            const container =
+                document.getElementById("peopleContainer");
+
+            const count =
+                container.querySelectorAll(
+                    'input[name="person[]"]'
+                ).length + 1;
+
+            const input =
+                document.createElement("input");
+
+            input.type = "text";
+            input.name = "person[]";
+            input.placeholder = "Ime osobe " + count;
+            input.required = true;
+
+            container.appendChild(input);
+        }
+
+
+        /*
+        AKO GOST ODABERE "NE",
+        SKRIVAJU SE POLJA ZA OSOBE
+        */
+
+        function togglePeopleFields() {
+
+            const attendance =
+                document.getElementById("attendance").value;
+
+            const peopleSection =
+                document.getElementById("peopleSection");
+
+            const peopleInputs =
+                peopleSection.querySelectorAll(
+                    'input[name="person[]"]'
+                );
+
+            if (attendance === "Ne") {
+
+                peopleSection.style.display = "none";
+
+                peopleInputs.forEach(function (input) {
+                    input.required = false;
+                });
+
+            } else {
+
+                peopleSection.style.display = "block";
+
+                peopleInputs.forEach(function (input) {
+                    input.required = true;
+                });
+            }
+        }
+
+
+        /*
+        EMAILJS
+        */
+
+        function submitForm(event) {
+
+            event.preventDefault();
+
+            const form = event.target;
+
+            const persons = [
+                ...form.querySelectorAll(
+                    'input[name="person[]"]'
+                )
+            ]
+                .map(function (input) {
+                    return input.value.trim();
+                })
+                .filter(function (value) {
+                    return value !== "";
+                })
+                .join(", ");
+
+            const submitButton =
+                form.querySelector(
+                    'button[type="submit"]'
+                );
+
+            submitButton.disabled = true;
+            submitButton.textContent = "Šaljem...";
+
+            emailjs.send(
+                "service_0el4kwb",
+                "template_zhavlcg",
+                {
+                    main_name:
+                        document.getElementById(
+                            "mainName"
+                        ).value,
+
+                    attendance:
+                        document.getElementById(
+                            "attendance"
+                        ).value,
+
+                    persons:
+                        persons || "Nema prijavljenih osoba",
+
+                    message:
+                        document.getElementById(
+                            "message"
+                        ).value || "Bez poruke"
+                }
+            )
+            .then(function () {
+
+                alert("💍 Poslano!");
+
+                form.reset();
+
+                document.getElementById(
+                    "peopleSection"
+                ).style.display = "block";
+
+                submitButton.disabled = false;
+                submitButton.textContent = "Pošalji";
+            })
+            .catch(function (error) {
+
+                console.error("EmailJS greška:", error);
+
+                alert("Greška pri slanju");
+
+                submitButton.disabled = false;
+                submitButton.textContent = "Pošalji";
+            });
+        }
+
+
+        /*
+        FADE-IN PRI SKROLANJU
+        */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const fadeElements =
+                    document.querySelectorAll(
+                        ".scroll-fade"
+                    );
+
+                const fadeObserver =
+                    new IntersectionObserver(
+                        function (entries, observer) {
+
+                            entries.forEach(
+                                function (entry) {
+
+                                    if (entry.isIntersecting) {
+
+                                        entry.target.classList.add(
+                                            "scroll-fade-visible"
+                                        );
+
+                                        observer.unobserve(
+                                            entry.target
+                                        );
+                                    }
+                                }
+                            );
+                        },
+                        {
+                            threshold: 0.15,
+                            rootMargin:
+                                "0px 0px -50px 0px"
+                        }
+                    );
+
+                fadeElements.forEach(
+                    function (element) {
+                        fadeObserver.observe(element);
+                    }
+                );
+            }
+        );
+    </script>
+
+</body>
+
+</html>
